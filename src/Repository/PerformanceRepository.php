@@ -19,22 +19,21 @@ class PerformanceRepository extends ServiceEntityRepository
         parent::__construct($registry, Performance::class);
     }
 
-    // /**
-    //  * @return Performance[] Returns an array of Performance objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    /**
+     * @return Performance[] Returns an array of Performance objects
+     */
+
+    public function getByPeriodPerformances($left, $right)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
+            ->andWhere('p.date <= :left')
+            ->andWhere('p.date >= :right')
+            ->setParameter('left', $left)
+            ->setParameter('right', $right)
             ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
             ->getQuery()
-            ->getResult()
-        ;
+            ->getResult();
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Performance

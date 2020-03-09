@@ -77,7 +77,7 @@ class Artist
 
     public function __toString(): string
     {
-        return $this->title;
+        return $this->name;
     }
 
     public function addPerformance(Performance $performance): self
