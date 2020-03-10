@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Validator\Constraints\Date;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 
 /**
@@ -23,7 +23,7 @@ class PerformanceController extends AbstractController
     public function index(PerformanceRepository $performanceRepository): Response
     {
         return $this->render('performance/index.html.twig', [
-            'performances' => $performanceRepository->getByPeriodPerformances(new Date("+1 week"), new Date()),
+            'performances' => $performanceRepository->getByPeriodPerformances(new DateTime("+1 week"), new DateTime()),
         ]);
     }
 

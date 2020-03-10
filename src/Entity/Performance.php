@@ -64,9 +64,9 @@ class Performance
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?string
     {
-        return $this->date;
+        return $this->date->format("d-m-Y");
     }
 
     public function setDate(\DateTimeInterface $date): self
@@ -76,9 +76,9 @@ class Performance
         return $this;
     }
 
-    public function getCommencement(): ?\DateTimeInterface
+    public function getCommencement(): ?string
     {
-        return $this->commencement;
+        return $this->commencement->format("H:i");
     }
 
     public function setCommencement(\DateTimeInterface $commencement): self

@@ -9,6 +9,7 @@
     <title>{% block title %}Artist List{% endblock %}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/sticky-footer-navbar/">
+    <link rel="maincss" href="../public/main.css">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -56,6 +57,48 @@
             $(this).hide();
         });
     });
+
+    function allPerf() {
+        document.querySelector('.thisWeek').classList.remove('d-block');
+        document.querySelector('.history').classList.remove('d-block');
+        document.querySelector('.all').classList.add('d-block');
+
+        document.querySelector('.allTitle').classList.add('d-block');
+        document.querySelector('.historyTitle').classList.remove('d-block');
+        document.querySelector('.thisWeekTitle').classList.remove('d-block');
+
+        document.querySelector('.allbtn').classList.remove('d-block');
+        document.querySelector('.thisWeekbtn').classList.add('d-block');
+        document.querySelector('.historybtn').classList.add('d-block');
+    }
+
+    function thisWeek() {
+        document.querySelector('.all').classList.remove('d-block');
+        document.querySelector('.history').classList.remove('d-block');
+        document.querySelector('.thisWeek').classList.add('d-block');
+
+        document.querySelector('.allTitle').classList.remove('d-block');
+        document.querySelector('.historyTitle').classList.remove('d-block');
+        document.querySelector('.thisWeekTitle').classList.add('d-block');
+
+        document.querySelector('.thisWeekbtn').classList.remove('d-block');
+        document.querySelector('.allbtn').classList.add('d-block');
+        document.querySelector('.historybtn').classList.add('d-block');
+    }
+
+    function historyPerf() {
+        document.querySelector('.thisWeek').classList.remove('d-block');
+        document.querySelector('.all').classList.remove('d-block');
+        document.querySelector('.history').classList.add('d-block');
+
+        document.querySelector('.allTitle').classList.remove('d-block');
+        document.querySelector('.historyTitle').classList.add('d-block');
+        document.querySelector('.thisWeekTitle').classList.remove('d-block');
+
+        document.querySelector('.historybtn').classList.remove('d-block');
+        document.querySelector('.thisWeekbtn').classList.add('d-block');
+        document.querySelector('.allbtn').classList.add('d-block');
+    }
 </script>
 {% block javascripts %}{% endblock %}
 

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Performance;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use DateTime;
 
 class IndexController extends AbstractController
 {
@@ -14,10 +15,13 @@ class IndexController extends AbstractController
     public function index()
     {
 
-        $performances = $this->getDoctrine()->getRepository(Performance::class)->findAll();
-
+        $thisWeek = $this->getDoctrine()->getRepository(Performance::class)->getByPeriodPerformances(new DateTime("sunday this week"), new DateTime());
+        $history = $this->getDoctrine()->getRepository(Performance::class)->getByPeriodPerformances(new DateTime(), new DateTime("-1000 year"));
+        $all = $this->getDoctrine()->getRepository(Performance::class)->findAll();
         return $this->render('index/index.html.twig', [
-            'performances' => $performances,
+            'thisWeek' => $thisWeek,
+            'history' => $history,
+            'all' => $all,
         ]);
     }
 }

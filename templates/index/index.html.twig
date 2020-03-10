@@ -16,10 +16,45 @@
     </style>
 
     <div class="example-wrapper">
-        <h2 class="d-flex justify-content-center">Artist List</h2>
-            <h3 class="d-flex justify-content-center">All performances</h3>
-            {% for performance in performances %}
-                <h5 class="d-flex justify-content-center">{{ performance.artist }}</h5>
-            {% endfor %}
+            <h3 class="text-center thisWeekTitle d-none d-block">Performances this week</h3>
+            <h3 class="text-center allTitle d-none">All performances</h3>
+            <h3 class="text-center historyTitle d-none">Previous performances</h3>
+            <div class="d-flex justify-content-center">
+                <button class="btn btn-dark thisWeekbtn d-none mr-1" onclick=thisWeek()>This week performances</button>
+                <button class="btn btn-dark historybtn d-none d-block mr-1" onclick=historyPerf()>Previous performances</button>
+                <button class="btn btn-dark allbtn d-none d-block" onclick=allPerf()>All performances</button>
+            </div>
+
+            <div class="thisWeek d-none d-block">
+                {% for performance in thisWeek %}
+                    <div class="mt-5 border w-50 ml-auto mr-auto">
+                        <h5 class="d-flex justify-content-center">Artist: {{ performance.artist }}</h5>
+                        <h5 class="d-flex justify-content-center">Date: {{ performance.date }}</h5>
+                        <h5 class="d-flex justify-content-center">Commencement: {{ performance.commencement }}</h5>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="history d-none">
+                {% for performance in history %}
+                    <div class="mt-5 border w-50 ml-auto mr-auto">
+                        <h5 class="d-flex justify-content-center">Artist: {{ performance.artist }}</h5>
+                        <h5 class="d-flex justify-content-center">Date: {{ performance.date }}</h5>
+                        <h5 class="d-flex justify-content-center">Commencement: {{ performance.commencement }}</h5>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="all d-none">
+                {% for performance in all %}
+                    <div class="mt-5 border w-50 ml-auto mr-auto">
+                        <h5 class="d-flex justify-content-center">Artist: {{ performance.artist }}</h5>
+                        <h5 class="d-flex justify-content-center">Date: {{ performance.date }}</h5>
+                        <h5 class="d-flex justify-content-center">Commencement: {{ performance.commencement }}</h5>
+                    </div>
+                {% endfor %}
+            </div>
+
+
     </div>
 {% endblock %}
